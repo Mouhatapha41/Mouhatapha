@@ -95,22 +95,9 @@
                 $title = $_POST['title'];
                 $updated_at = date('Y-m-d H:i:s');
 
-                if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == UPLOAD_ERR_OK) {
-                    $profile = $_FILES['profile_picture']['name'];
-                    $profile_tmp = $_FILES['profile_picture']['tmp_name'];
-                    $profile_path = "photo_profil/$profile";
-                    move_uploaded_file($profile_tmp, $profile_path);
-                } else {
-                    $profile_path = null;
-                }
 
-                $sql = "UPDATE authors SET lastname = '$lastname', firstname = '$firstname', email = '$email', title = '$title', updated_at = '$updated_at'";
+                $sql = "UPDATE authors SET lastname = '$lastname', firstname = '$firstname', email = '$email', title = '$title', updated_at = '$updated_at' WHERE id = '$id' ";
 
-                if ($profile_path) {
-                    $sql .= ", profile = '$profile_path'";
-                }
-
-                $sql .= " WHERE id = '$id'";
 
                 if (mysqli_query($conn, $sql)) { ?>
                     <div class="notification is-success has-text-centered mt-6">

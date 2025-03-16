@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentification | CRUDISTA</title>
+    <title>Authentification </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
 </head>
 <body class="has-background-light">
@@ -47,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="column is-4">
                 <div class="box">
                     <h2 class="title is-4 has-text-centered">Connexion</h2>
-                    <?php if ($error_message): ?>
+                    <?php if ($error_message){ ?>
                         <div class="notification is-danger">
                             <?= $error_message ?>
                         </div>
-                    <?php endif; ?>
+                    <?php } ?>
                     <form action="authentification.php" method="post">
                         <div class="field">
                             <label class="label">Email</label>
